@@ -78,7 +78,7 @@ local function spawnPed(name)
 			optionNames[i] = _name
 		end
 		PedList[name].targetNames = optionNames
-		exports.target:addLocalEntity(_ped, Ped.target)
+		exports.ox_target:addLocalEntity(_ped, Ped.target)
 	end
 
 	if Ped.onSpawn then
@@ -101,7 +101,7 @@ local function removePed(name)
 	end
 
 	if Ped.target and Ped.targetNames then
-		exports.target:removeLocalEntity(_ped, Ped.targetNames)
+		exports.ox_target:removeLocalEntity(_ped, Ped.targetNames)
 		PedList[name].targetNames = nil
 	end
 
