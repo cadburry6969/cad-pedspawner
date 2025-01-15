@@ -178,14 +178,23 @@ end)
 ---@param name string
 ---@param data PedData
 function AddPed(name, data)
-    PedList[name] = data
+	if PedList[name] then
+		removePed(name)
+		PedList[name] = nil
+	end
+	Wait(100)
+	PedList[name] = data
+	return true
 end
 exports("AddPed", AddPed)
 
 ---@param name string ped index name
 function DeletePed(name)
     if PedList[name] then
+		removePed(name)
         PedList[name] = nil
+		return true
     end
+	return false
 end
 exports("DeletePed", DeletePed)
